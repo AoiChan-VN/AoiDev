@@ -1,15 +1,15 @@
 package aoichan.crystal;
 
-import aoidev.crystal.bootstrap.ConsoleBanner;
-import aoidev.crystal.gem.GemManager;
-import aoidev.crystal.gem.GemRegistry;
-import aoidev.crystal.hook.PlaceholderHook;
-import aoidev.crystal.hook.VaultHook;
-import aoidev.crystal.storage.HikariProvider;
-import aoidev.crystal.storage.SQLiteStorage;
-import aoidev.crystal.storage.StorageAdapter;
-import aoidev.crystal.ui.UISystem;
-import aoidev.crystal.security.AntiDuper;
+import aoichan.crystal.bootstrap.ConsoleBanner;
+import aoichan.crystal.gem.GemManager;
+import aoichan.crystal.gem.GemRegistry;
+import aoichan.crystal.hook.PlaceholderHook;
+import aoichan.crystal.hook.VaultHook;
+import aoichan.crystal.storage.HikariProvider;
+import aoichan.crystal.storage.SQLiteStorage;
+import aoichan.crystal.storage.StorageAdapter;
+import aoichan.crystal.ui.UISystem;
+import aoichan.crystal.security.AntiDuper;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
