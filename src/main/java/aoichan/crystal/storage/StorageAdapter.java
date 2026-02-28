@@ -1,6 +1,6 @@
-package aoidev.crystal.storage;
+package aoichan.crystal.storage;
 
-import aoidev.crystal.gem.Gem;
+import aoichan.crystal.gem.Gem;
 
 import java.util.List;
 import java.util.UUID;
