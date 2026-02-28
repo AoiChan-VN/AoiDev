@@ -1,49 +1,52 @@
-package aoidev.crystal;
+package aoidev.crystal.gem;
 
-import org.bukkit.Bukkit;
+import aoidev.crystal.storage.StorageAdapter;
 import org.bukkit.plugin.Plugin;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executor;
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Thread-safe manager for in-memory gem instances.
- */
 public class GemManager {
 
     private final Plugin plugin;
-    private final StorageManager storage;
-    // Keep map of id -> Gem
-    private final Map<UUID, Gem> gems = Collections.synchronizedMap(new LinkedHashMap<>());
+    private final StorageAdapter storage;
+    private final Executor executor;
 
-    public GemManager(Plugin plugin, StorageManager storage) {
+    private final Map<UUID, Gem> gems = new ConcurrentHashMap<>();
+
+    public GemManager(Plugin plugin, StorageAdapter storage, Executor executor) {
         this.plugin = plugin;
         this.storage = storage;
+        this.executor = executor;
     }
 
-    public Optional<Gem> getGem(UUID id) {
+    public void loadAll() {
+        storage.loadAll().thenAccept(list -> {
+            for (Gem g : list) {
+                gems.put(g.getId(), g);
+            }
+            plugin.getLogger().info("Loaded " + gems.size() + " gems.");
+        });
+    }
+
+    public CompletableFuture<Void> create(String type, int level) {
+        Gem gem = new Gem(UUID.randomUUID(), type, level);
+        gems.put(gem.getId(), gem);
+        return storage.save(gem);
+    }
+
+    public Optional<Gem> get(UUID id) {
         return Optional.ofNullable(gems.get(id));
     }
 
-    public List<Gem> getAllGems() {
-        synchronized (gems) {
-            return new ArrayList<>(gems.values());
-        }
+    public Collection<Gem> getAll() {
+        return Collections.unmodifiableCollection(gems.values());
     }
 
-    public CompletableFuture<Void> createAndSaveGemAsync(String type, int level) {
-        UUID id = UUID.randomUUID();
-        Gem gem = new Gem(id, type, level);
-        gems.put(id, gem);
-        return storage.saveGemAsync(gem);
-    }
-
-    public void addLoadedGem(Gem gem) {
-        gems.put(gem.getId(), gem);
-    }
-
-    public CompletableFuture<Void> removeGemAsync(UUID id) {
+    public CompletableFuture<Void> delete(UUID id) {
         gems.remove(id);
-        return storage.deleteGemAsync(id);
+        return storage.delete(id);
     }
 }
