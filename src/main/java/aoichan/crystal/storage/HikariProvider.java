@@ -1,5 +1,6 @@
 package aoichan.crystal.storage;
 
+import aoichan.crystal.Main;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
