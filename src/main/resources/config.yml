@@ -1,0 +1,16 @@
+# Gems Ultimate configuration (production-oriented defaults)
+storage:
+  type: json
+  json-folder: data/gems
+socket:
+  enabled: true
+  port: 31337
+ui:
+  inventory-size: 54
+logging:
+  verbose: false
+anti_dupe:
+  enabled: true
+  recent_window_ms: 2000
+metrics:
+  bstats: false
