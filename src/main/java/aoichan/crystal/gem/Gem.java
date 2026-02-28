@@ -1,12 +1,10 @@
-package aoidev.crystal;
+package aoidev.crystal.gem;
 
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * Basic immutable gem model. Extend with attributes, rarity, stats, nbt, etc.
- */
 public final class Gem {
+
     private final UUID id;
     private final String type;
     private final int level;
@@ -17,9 +15,17 @@ public final class Gem {
         this.level = level;
     }
 
-    public UUID getId() { return id; }
-    public String getType() { return type; }
-    public int getLevel() { return level; }
+    public UUID getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 
     @Override
     public boolean equals(Object o) {
