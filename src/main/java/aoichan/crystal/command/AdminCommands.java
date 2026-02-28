@@ -1,4 +1,4 @@
-package aoichan.crystal;
+package aoichan.crystal.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;
