@@ -3,17 +3,13 @@ main: aoidev.crystal.Main
 version: 1.0.0
 api-version: 1.20
 author: AoiDev
-description: "Gems Ultimate - scalable, production-ready gem system for Paper 1.20.4"
+softdepend: [Vault, PlaceholderAPI]
+
 commands:
   gems:
-    description: Manage GemsUltimate
-    usage: /<command> <subcommand>
-    aliases: [gem]
+    description: Main command
+    permission: gems.admin
+
 permissions:
   gems.admin:
-    description: All admin operations for GemsUltimate
     default: op
-  gems.view:
-    description: View gem info
-    default: true
-load: STARTUP
