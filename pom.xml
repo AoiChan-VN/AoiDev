@@ -32,12 +32,12 @@
       <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
     </repository>
 
-    <!-- Vault (via JitPack) -->
+    <!-- Vault (Spigot) nếu bị lỗi thì đổi qua jitpack -->
     <repository>
-      <id>jitpack.io</id>
-      <url>https://jitpack.io</url>
-    </repository>
-
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+  </repository>
+           
   </repositories>
 
   <dependencies>
