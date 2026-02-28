@@ -1,16 +1,9 @@
-# Gems Ultimate configuration (production-oriented defaults)
 storage:
-  type: json
-  json-folder: data/gems
-socket:
+  type: sqlite
+  sqlite-file: gems.db
+
+economy:
   enabled: true
-  port: 31337
-ui:
-  inventory-size: 54
-logging:
-  verbose: false
-anti_dupe:
+
+placeholderapi:
   enabled: true
-  recent_window_ms: 2000
-metrics:
-  bstats: false
