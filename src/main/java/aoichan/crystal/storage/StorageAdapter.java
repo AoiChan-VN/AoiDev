@@ -1,7 +1,6 @@
 package aoichan.crystal.storage;
 
 import aoichan.crystal.gem.Gem;
-import aoichan.crystal.Main;
 
 import java.util.List;
 import java.util.UUID;
