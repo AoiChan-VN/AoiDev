@@ -29,6 +29,6 @@ public class SQLiteStorage implements StorageProvider {
 
     @Override
     public void close() {
-        // Nothing specific; Hikari managed by DatabasePool.shutdown
+        // Nothing; dataSource handled by DatabasePool.shutdown()
     }
 }
