@@ -18,40 +18,59 @@ public final class AoiMain extends JavaPlugin {
     private SocketManager socketManager;
     private GemsAPI api;
 
-    public static AoiMain get() {
-        return instance;
-    }
+    public static AoiMain get() { return instance; }
 
     @Override
     public void onEnable() {
+
         instance = this;
 
         saveDefaultConfig();
         saveResource("gems.yml", false);
 
-        if (getConfig().getBoolean("banner.enabled", true)) {
+        if (getConfig().getBoolean("banner.enabled", true))
             ConsoleBanner.show(this);
-        }
+
+        setupStorage();
+        setupManagers();
+        registerCommands();
+        registerEvents();
+    }
+
+    private void setupStorage() {
 
         databasePool = new DatabasePool(this);
-        storage = new SQLiteStorage(databasePool);
-        storage.initTables();
 
+        String type = getConfig().getString("storage.type", "SQLITE");
+
+        if (type.equalsIgnoreCase("MYSQL"))
+            storage = new MySQLStorage(databasePool, this);
+        else
+            storage = new SQLiteStorage(databasePool);
+
+        storage.initTables();
+    }
+
+    private void setupManagers() {
         gemsManager = new GemsManager(this);
         socketManager = new SocketManager(this);
         api = new GemsAPI(gemsManager, socketManager);
-
-        getCommand("gems").setExecutor(new GemsCommand());
-
-        getServer().getPluginManager().registerEvents(
-                new AntiDupeManager(socketManager), this);
-
-        getServer().getPluginManager().registerEvents(
-                new GUIListener(), this);
     }
 
-    public GemsAPI getAPI() { return api; }
+    private void registerCommands() {
+        if (getCommand("gems") != null)
+            getCommand("gems").setExecutor(new GemsCommand(this));
+    }
+
+    private void registerEvents() {
+        getServer().getPluginManager()
+                .registerEvents(new AntiDupeManager(socketManager), this);
+        getServer().getPluginManager()
+                .registerEvents(new GUIListener(this), this);
+    }
+
     public GemsManager getGemsManager() { return gemsManager; }
+    public GemsAPI getAPI() { return api; }
 
     @Override
     public void onDisable() {
