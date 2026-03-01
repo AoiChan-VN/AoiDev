@@ -1,5 +1,15 @@
-storage:
-  type: SQLITE
-
 banner:
   enabled: true
+
+storage:
+  type: SQLITE # or MYSQL
+
+mysql:
+  host: localhost
+  port: 3306
+  database: gems
+  username: root
+  password: password
+
+socket:
+  max-slots: 3
