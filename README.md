@@ -1,2 +1,2 @@
-# AoiDev
-# Author: 🌸AoiDev🍀 Plugins: Crystal💎 🛡️MMORPG⚔🏹 Nation: Việt Nam 🇻🇳
+# 🌸𝓐𝓸𝒾𝒞𝒽𝒶𝓃🍀²ᵏ❤
+# Plugins: Crystal💎 🛡️MMORPG⚔🏹 Nation: Việt Nam 🇻🇳
