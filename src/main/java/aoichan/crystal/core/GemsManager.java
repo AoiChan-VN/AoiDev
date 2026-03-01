@@ -2,14 +2,13 @@ package aoichan.crystal.core;
 
 import aoichan.crystal.AoiMain;
 import aoichan.crystal.utils.ItemBuilder;
+import aoichan.crystal.utils.ColorUtil;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class GemsManager {
 
@@ -41,8 +40,12 @@ public class GemsManager {
         if (data == null) return new ItemStack(Material.BARRIER);
 
         String name = (String) data.getOrDefault("display-name", "&fGem");
+        @SuppressWarnings("unchecked")
+        List<String> lore = (List<String>) data.getOrDefault("lore", Collections.emptyList());
+
         return new ItemBuilder(Material.DIAMOND)
-                .setName(name)
+                .setName(ColorUtil.colorize(name))
+                .setLore(lore)
                 .build();
     }
 }
