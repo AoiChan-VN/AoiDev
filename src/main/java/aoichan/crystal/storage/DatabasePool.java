@@ -4,8 +4,6 @@ import aoichan.crystal.AoiMain;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import javax.sql.DataSource;
-
 public class DatabasePool {
 
     private final HikariDataSource dataSource;
@@ -14,8 +12,22 @@ public class DatabasePool {
 
         HikariConfig config = new HikariConfig();
 
-        config.setJdbcUrl("jdbc:sqlite:" +
-                plugin.getDataFolder() + "/data.db");
+        String type = plugin.getConfig().getString("storage.type");
+
+        if ("MYSQL".equalsIgnoreCase(type)) {
+            String host = plugin.getConfig().getString("mysql.host");
+            String port = plugin.getConfig().getString("mysql.port");
+            String db = plugin.getConfig().getString("mysql.database");
+            String user = plugin.getConfig().getString("mysql.username");
+            String pass = plugin.getConfig().getString("mysql.password");
+
+            config.setJdbcUrl("jdbc:mysql://" + host + ":" + port + "/" + db);
+            config.setUsername(user);
+            config.setPassword(pass);
+        } else {
+            config.setJdbcUrl("jdbc:sqlite:" +
+                    plugin.getDataFolder() + "/data.db");
+        }
 
         config.setMaximumPoolSize(10);
         config.setPoolName("GemsPool");
@@ -23,11 +35,7 @@ public class DatabasePool {
         dataSource = new HikariDataSource(config);
     }
 
-    public StorageProvider createProvider() {
-        return new SQLiteStorage(dataSource);
-    }
-
-    public DataSource getDataSource() {
+    public HikariDataSource getDataSource() {
         return dataSource;
     }
 
