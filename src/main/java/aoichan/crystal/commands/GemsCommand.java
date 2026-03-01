@@ -3,7 +3,9 @@ package aoichan.crystal.commands;
 import aoichan.crystal.AoiMain;
 import aoichan.crystal.core.ReloadManager;
 import aoichan.crystal.gui.GemsGUI;
-import org.bukkit.command.*;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class GemsCommand implements CommandExecutor {
