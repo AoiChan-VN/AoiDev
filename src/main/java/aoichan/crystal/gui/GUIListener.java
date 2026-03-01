@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
+import org.bukkit.entity.Player;
 
 public class GUIListener implements Listener {
 
@@ -20,12 +21,12 @@ public class GUIListener implements Listener {
         InventoryView view = e.getView();
         if (view.getTitle().equals("§8Gems Ultimate")) {
             e.setCancelled(true);
-            // placeholder: selection handling
+            // handle future click logic (socketging, preview, etc)
         }
     }
 
     @EventHandler
     public void onClose(InventoryCloseEvent e) {
-        // handle animation cancel or cleanup if needed
+        // stop animations / cleanup if implemented
     }
 }
