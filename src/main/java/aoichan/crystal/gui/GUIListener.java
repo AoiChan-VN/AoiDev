@@ -1,12 +1,11 @@
 package aoichan.crystal.gui;
 
 import aoichan.crystal.AoiMain;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryView;
-import org.bukkit.inventory.ItemStack;
 
 public class GUIListener implements Listener {
 
@@ -18,17 +17,15 @@ public class GUIListener implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
-
         InventoryView view = e.getView();
-
-        if (view.getTitle().equalsIgnoreCase("§8Gems Ultimate")) {
-
+        if (view.getTitle().equals("§8Gems Ultimate")) {
             e.setCancelled(true);
-
-            ItemStack clicked = e.getCurrentItem();
-            if (clicked == null) return;
-
-            // Future: handle gem selection logic
+            // placeholder: selection handling
         }
+    }
+
+    @EventHandler
+    public void onClose(InventoryCloseEvent e) {
+        // handle animation cancel or cleanup if needed
     }
 }
