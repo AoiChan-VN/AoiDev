@@ -6,12 +6,12 @@ import org.bukkit.inventory.Inventory;
 
 public class GemsGUI {
 
-    public static Inventory create() {
+    public static Inventory create(AoiMain plugin) {
         Inventory inv = Bukkit.createInventory(null, 27, "§8Gems Ultimate");
 
-        AoiMain.get().getAPI().getAllGems().forEach(id -> {
-            inv.addItem(AoiMain.get().getAPI().createGemItem(id));
-        });
+        for (String id : plugin.getAPI().getAllGems()) {
+            inv.addItem(plugin.getAPI().createGemItem(id));
+        }
 
         return inv;
     }
