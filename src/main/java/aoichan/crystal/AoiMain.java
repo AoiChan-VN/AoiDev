@@ -27,16 +27,15 @@ public final class AoiMain extends JavaPlugin {
         saveDefaultConfig();
         saveResource("gems.yml", false);
 
-        // init PDC key safely (NamespacedKey requires plugin instance)
-        PDCUtil.init(this);
+        PDCUtil.init(this); // MUST: init early
 
-        if (getConfig().getBoolean("banner.enabled", true))
+        if (getConfig().getBoolean("banner.enabled", true)) {
             ConsoleBanner.show(this);
+        }
 
-        // setup DB pool and storage
+        // Database and storage
         databasePool = new DatabasePool(this);
         String type = getConfig().getString("storage.type", "SQLITE");
-
         if ("MYSQL".equalsIgnoreCase(type)) {
             storage = new MySQLStorage(databasePool);
         } else {
@@ -44,12 +43,12 @@ public final class AoiMain extends JavaPlugin {
         }
         storage.initTables();
 
-        // managers
+        // Managers & API
         gemsManager = new GemsManager(this);
         socketManager = new SocketManager(this);
         api = new GemsAPI(gemsManager, socketManager);
 
-        // commands & events
+        // Commands & events
         if (getCommand("gems") != null) getCommand("gems").setExecutor(new GemsCommand(this));
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new AntiDupeManager(socketManager), this);
