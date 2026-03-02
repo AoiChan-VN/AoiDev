@@ -2,7 +2,7 @@ banner:
   enabled: true
 
 storage:
-  type: SQLITE # or MYSQL
+  type: SQLITE # or MYSQL # Tùy bạn muốn sài gì
 
 mysql:
   host: localhost
@@ -13,3 +13,16 @@ mysql:
 
 socket:
   max-slots: 3
+refine:
+  delay-ticks: 20
+  broadcast-mode: SERVER
+  thunder:
+    min-level: 7
+
+qualities:
+  SU_THI:
+    item-break-rate: 0.10
+  THAN_THOAI:
+    item-break-rate: 0.20
+  HONG_MONG:
+    item-break-rate: 0.35
