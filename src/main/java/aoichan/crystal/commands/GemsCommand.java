@@ -16,42 +16,50 @@ public class GemsCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
-@Override
-public boolean onCommand(CommandSender sender,
-                         Command command,
-                         String label,
-                         String[] args) {
+    @Override
+    public boolean onCommand(CommandSender sender,
+                             Command command,
+                             String label,
+                             String[] args) {
 
-    // ===== Console Mode =====
-    if (!(sender instanceof Player player)) {
+        // =========================
+        // Console Mode
+        // =========================
+        if (!(sender instanceof Player)) {
 
-        if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+            if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+                ReloadManager.reload(plugin);
+                sender.sendMessage("Gems reloaded.");
+                return true;
+            }
+
+            sender.sendMessage("Console usage: /gems reload");
+            return true;
+        }
+
+        Player player = (Player) sender;
+
+        // =========================
+        // Player Mode
+        // =========================
+        if (args.length == 0) {
+            player.openInventory(GemsGUI.create(plugin));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("reload")) {
+
+            if (!player.hasPermission("gems.admin")) {
+                player.sendMessage("No permission.");
+                return true;
+            }
+
             ReloadManager.reload(plugin);
-            sender.sendMessage("Gems reloaded.");
+            player.sendMessage("Gems reloaded.");
             return true;
         }
 
-        sender.sendMessage("Console usage: /gems reload");
+        player.sendMessage("Usage: /gems or /gems reload");
         return true;
     }
-
-    // ===== Player Mode =====
-    if (args.length == 0) {
-        player.openInventory(GemsGUI.create(plugin));
-        return true;
-    }
-
-    if (args[0].equalsIgnoreCase("reload")) {
-
-        if (!player.hasPermission("gems.admin")) {
-            player.sendMessage("No permission.");
-            return true;
-        }
-
-        ReloadManager.reload(plugin);
-        player.sendMessage("Gems reloaded.");
-        return true;
-    }
-
-    return true;
 }
