@@ -1,1 +1,22 @@
-
+tu_tieu_than_loi:
+  name: "&5Tử Tiêu Thần Lôi"
+  material: AMETHYST_SHARD   # để show icon trong GUI
+  rarity: MYTHIC
+  element: THUNDER
+  success-rate: 75
+  stats:
+    STR: 10
+    CRIT: 15
+    THUNDER_DAMAGE: 55
+  effect:
+    type: LIGHTNING
+    chance: 15   # percent
+  lore:
+    - "&8▬▬▬▬▬▬▬๑۩NGỌC۩๑▬▬▬▬▬▬▬"
+    - "&d✦ &5Tử Tiêu Thần Lôi"
+    - ""
+    - "&7+10 Sát thương"
+    - "&7+15% Chí mạng"
+    - "&7+55% Sát thương sấm sét"
+    - ""
+    - "&8▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
