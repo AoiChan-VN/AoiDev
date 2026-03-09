@@ -1,4 +1,4 @@
-package aiochan.crystal.core.module;
+package aoichan.crystal.core.module;
 
 import java.util.ArrayList;
 import java.util.List;
