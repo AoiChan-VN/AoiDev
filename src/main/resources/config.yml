@@ -1,1 +1,9 @@
+# [!] Code: Crystal Config
 
+debug: false
+
+forge:
+  delay: 20
+
+broadcast:
+  enabled: true
