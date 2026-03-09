@@ -1,4 +1,4 @@
-package aiochan.crystal.core.module;
+package aoichan.crystal.core.module;
 
 public interface CrystalModule {
 
