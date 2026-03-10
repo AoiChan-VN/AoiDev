@@ -41,6 +41,9 @@ public final class CrystalPlugin extends JavaPlugin {
 
         // [!] Code: Drop gem
         GemDropManager.load();
+
+        // [!] Code: Gem load/reload
+        GemParser.load(getConfig());
         
         getLogger().info("Crystal Ultimate enabled.");
     }
