@@ -1,7 +1,9 @@
 package aoichan.crystal.bootstrap;
 
-import aoichan.crystal.platform.command.CrystalCommand;
+import aoichan.crystal.api.CrystalAPI;
+import aoichan.crystal.api.GemServiceImpl;
 
+import aoichan.crystal.platform.command.CrystalCommand;
 import aoichan.crystal.core.gem.GemParser;
 
 import aoichan.crystal.gameplay.gem.GemRegistry;
@@ -46,6 +48,9 @@ public final class CrystalPlugin extends JavaPlugin {
 
         // [!] Code: Gem load/reload
         GemParser.load(getConfig());
+
+        // [!] Code: Crystal API
+        CrystalAPI.setGemService(new GemServiceImpl());
         
         getLogger().info("Crystal Ultimate enabled.");
     }
