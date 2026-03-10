@@ -51,13 +51,13 @@ public class GemItemBuilder {
 
         NamespacedKey gemKey =
                 new NamespacedKey(
-                        CrystalPlugin.getInstance(),
+                        CrystalPlugin.get(),
                         "gem_id"
                 );
 
         NamespacedKey levelKey =
                 new NamespacedKey(
-                        CrystalPlugin.getInstance(),
+                        CrystalPlugin.get(),
                         "gem_level"
                 );
 
