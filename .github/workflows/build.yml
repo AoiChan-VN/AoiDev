@@ -23,3 +23,10 @@ jobs:
 
       - name: Build project
         run: mvn -B package -DskipTests 
+
+      - name: Upload jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: AoiChan-plugin
+          path: target/*.jar
+          retention-days: 1
