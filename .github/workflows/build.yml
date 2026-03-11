@@ -1,26 +1,38 @@
-name: Build Crystal Ultimate
+name: Build & Release Crystal Ultimate
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
+    tags:
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Java 17
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
           cache: maven
-      - name: Build
-        run: mvn -B -DskipTests package --no-transfer-progress
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+
+      - name: Build plugin
+        run: mvn -B package -DskipTests
+
+      - name: Get version from pom.xml
+        id: version
+        run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
+
+      - name: Prepare release file
+        run: |
+          mkdir release
+          cp target/*.jar release/CrystalUltimate-${{ steps.version.outputs.VERSION }}.jar
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: Crystal Ultimate
-          path: target/*.jar
-          retention-days: 1
+          files: release/*.jar
