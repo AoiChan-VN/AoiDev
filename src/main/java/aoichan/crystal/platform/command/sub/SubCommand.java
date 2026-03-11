@@ -2,8 +2,12 @@ package aoichan.crystal.platform.command.sub;
 
 import org.bukkit.command.CommandSender;
 
+// [!] Code: SubCommand interface
 public interface SubCommand {
 
-    // [!] Code: Execute command
-    void execute(CommandSender sender, String[] args);
-} 
+    void execute(
+            CommandSender sender,
+            String[] args
+    );
+
+}
