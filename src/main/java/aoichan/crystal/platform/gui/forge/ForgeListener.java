@@ -1,36 +1,42 @@
 package aoichan.crystal.platform.gui.forge;
 
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+
+// [!] Code: Forge GUI listener
 public class ForgeListener implements Listener {
 
-    private final ForgeButton forgeButton;
-
-    public ForgeListener(ForgeButton forgeButton) {
-        this.forgeButton = forgeButton;
-    }
-
     @EventHandler
-    public void click(InventoryClickEvent event) {
+    public void onClick(InventoryClickEvent e) {
 
-        if (!(event.getWhoClicked() instanceof Player player)) return;
+        if (!(e.getWhoClicked() instanceof Player player))
+            return;
 
-        if (!event.getView().getTitle()
-                .equals("§5Crystal Forge")) return;
+        if (!e.getView().getTitle()
+                .equals("Luyện Khí Phường"))
+            return;
 
-        int slot = event.getRawSlot();
+        if (ForgeProcess.isLocked(player)) {
 
-        if (slot == ForgeGUI.BUTTON_SLOT) {
-
-            event.setCancelled(true);
-
-            forgeButton.click(
-                    player,
-                    event.getInventory()
-            );
+            e.setCancelled(true);
+            return;
         }
+
+        int slot = e.getRawSlot();
+
+        if (slot != ForgeGUI.FORGE_BUTTON)
+            return;
+
+        e.setCancelled(true);
+
+        Inventory inv =
+                e.getInventory();
+
+        ForgeProcess.start(player, inv);
     }
-} 
+
+}
