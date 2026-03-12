@@ -1,8 +1,9 @@
 # 🍀𝓐𝓸𝒾𝒞𝒽𝒶𝓃💋
 
-![Release](https://img.shields.io/github/v/release/AoiChan-Dev/AoiDev?label=release)
-![build](https://img.shields.io/github/actions/workflow/status/AoiChan-Dev/AoiDev/build.yml)
+![Release](https://img.shields.io/github/v/release/AoiChan-Dev/AoiDev)
+![Build](https://img.shields.io/github/actions/workflow/status/AoiChan-Dev/AoiDev/build.yml)
 ![License](https://img.shields.io/github/license/AoiChan-Dev/AoiDev)
+![Stars](https://img.shields.io/github/stars/AoiChan-Dev/AoiDev)
 
 ## 💎 Plugins:【Crystal MMORPG】
 
