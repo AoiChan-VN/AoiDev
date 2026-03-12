@@ -1,10 +1,6 @@
 # 🍀𝓐𝓸𝒾𝒞𝒽𝒶𝓃💋 ![Stars](https://img.shields.io/github/stars/AoiChan-Dev/AoiDev) ![Forks](https://img.shields.io/github/forks/AoiChan-Dev/AoiDev) ![Issues](https://img.shields.io/github/issues/AoiChan-Dev/AoiDev)
 
-![Release](https://img.shields.io/github/v/release/AoiChan-Dev/AoiDev)
-![Build](https://img.shields.io/github/actions/workflow/status/AoiChan-Dev/AoiDev/build.yml)
-![License](https://img.shields.io/github/license/AoiChan-Dev/AoiDev?label=License&color=green)
-
-## 💎 Plugins:【Crystal MMORPG】
+## 💎 Plugins:【Crystal Ultimate】![Release](https://img.shields.io/github/v/release/AoiChan-Dev/AoiDev) 
 
 ## 💡 Đặc trưng
 
