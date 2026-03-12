@@ -3,7 +3,7 @@
 
 A powerful MMORPG currency system for Minecraft servers.
 
-![Version](https://img.shields.io/github/v/release/AoiChan-D/AoiDev)
+![Release](https://img.shields.io/github/v/release/AoiChan-D/AoiDev)
 ![Build](https://img.shields.io/github/actions/workflow/status/AoiChan-D/AoiDev/build.yml)
 ![License](https://img.shields.io/github/license/AoiChan-D/AoiDev)
 
