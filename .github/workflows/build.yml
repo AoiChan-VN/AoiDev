@@ -44,12 +44,6 @@ jobs:
       # Xây dựng cấu trúc
       - name: 📦🅱🆄🅸🅻🅳🏗️
         run: mvn -B package -DskipTests
-
-      # Hiện avatar + thông tin build
-      - name: 📊 Thông tin
-        run: |
-          echo "🍀𝓐𝓸𝒾𝒞𝒽𝒶𝓃💋:" >> $GITHUB_STEP_SUMMARY
-          echo "![avatar](https://github.com/AoiChan-Dev.png)" >> $GITHUB_STEP_SUMMARY
       
       # Đóng gói thành file .jar
       - name: 📦🅹🅰🆁
