@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class AoiMain extends JavaPlugin {
 
     private static AoiMain instance;
-    private AoilEngine engine;
+    private AoiEngine engine;
 
     @Override
     public void onEnable() {
