@@ -22,10 +22,9 @@ jobs:
           distribution: temurin
           java-version: 17
           server-id: github
-          cache: maven
-          server-id: github
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
+          cache: maven
 
       - name: Publish to GitHub Packages
         run: mvn -B deploy 
