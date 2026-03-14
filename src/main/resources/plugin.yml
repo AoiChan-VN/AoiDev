@@ -1,4 +1,4 @@
-name: Crystal-MMORPG
+name: Crystal-Core
 version: 1.0.0
 main: aiochan.crystal.bootstrap.CrystalPlugin
 api-version: 1.20
