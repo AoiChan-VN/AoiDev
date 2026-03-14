@@ -27,7 +27,7 @@ public final class AoiMain extends JavaPlugin {
         if (engine != null) {
             engine.shutdown();
 
-        getlogger().info("AoiChan đang ngủ");
+        getLogger().info("AoiChan đang ngủ");
         }
 
     }
