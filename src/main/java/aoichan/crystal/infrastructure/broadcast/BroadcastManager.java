@@ -14,7 +14,7 @@ public class BroadcastManager {
     public static void broadcastTribulation(Player player, Gem gem) {
 
         // 【!】Code: chỉ broadcast nếu gem hiếm
-        if (gem.getRarity().ordinal() < GemRarity.RARE.ordinal()) {
+        if (gem.getRarity().ordinal() < GemRarity.DIAPHAM.ordinal()) {
             return;
         }
 
