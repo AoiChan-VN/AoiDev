@@ -1,6 +1,8 @@
 package aoichan.crystal.bootstrap;
 
 import aoichan.crystal.core.engine.CrystalEngine;
+import aoichan.crystal.gameplay.socket.SocketUtil;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class AoiMain extends JavaPlugin {
