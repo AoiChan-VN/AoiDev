@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: 💋𝓐𝓸𝓲𝓒𝓱𝓪𝓷👅
+    name: 🎐𝓐𝓸𝓲𝓒𝓱𝓪𝓷🎐
     runs-on: ubuntu-latest
 
     permissions:
@@ -22,17 +22,17 @@ jobs:
       contents: read
 
     steps:
-      - name: 🔎Kiểm tra
+      - name: 🔎𝓒𝓱𝓮𝓬𝓴 𝓢𝓸𝓾𝓻𝓬𝓮
         uses: actions/checkout@v4
 
       # Cài đặt Actions Node.js
-      - name: 🟢🅽🅾🅳🅴
+      - name: 📒 𝓝𝓸𝓭𝓮
         uses: actions/setup-node@v4
         with:
           node-version: 24
 
       # Cài đặt JavaScript
-      - name: ☕🅹🅰🆅🅰
+      - name: ☕ ｊａｖａ
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -40,11 +40,11 @@ jobs:
           cache: maven
 
       # Xây dựng cấu trúc
-      - name: 📦🅱🆄🅸🅻🅳🏗️
+      - name: ⚒ 𝓑𝓾𝓲𝓵𝓭 🏗️
         run: mvn -B package -DskipTests
       
       # Đóng gói thành file .jar
-      - name: 📦🅹🅰🆁
+      - name: 📦 𝓤𝓹𝓵𝓸𝓪𝓻𝓭 𝓳𝓪𝓻
         uses: actions/upload-artifact@v4
         with:
           name: crystal-mmorpg
@@ -52,7 +52,7 @@ jobs:
           retention-days: 1
 
       # Tự động dọn dẹp Workflows Runs
-      - name: 🗑️Dọn Dẹp
+      - name: 🗑️ 𝓒𝓵𝓮𝓪𝓻 𝓦𝓸𝓻𝓴𝓯𝓸𝔀𝓼
         if: success()
         run: |
           echo "Đang dọn Workflows..."
