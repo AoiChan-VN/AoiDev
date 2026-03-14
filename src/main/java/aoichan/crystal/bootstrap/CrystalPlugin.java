@@ -3,9 +3,9 @@ package aoichan.crystal.bootstrap;
 import aoichan.crystal.core.engine.CrystalEngine;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class AoiMain extends JavaMain {
+public final class CrystalPlugin extends JavaPlugin {
 
-    private static AoiMain instance;
+    private static AoiPlugin instance;
     private CrystalEngine engine;
 
     @Override
