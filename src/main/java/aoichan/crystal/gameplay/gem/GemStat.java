@@ -1,6 +1,6 @@
 package aoichan.crystal.gameplay.gem;
 
-public enum CrystalStat {
+public enum GemStat {
 
     DAMAGE,
     CRIT_RATE,
